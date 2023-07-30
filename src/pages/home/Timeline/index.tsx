@@ -1,5 +1,6 @@
-import Cabecalho from "../Cabecalho"
-import Tweet from "../Tweets"
+import Cabecalho from "../../../components/Cabecalho"
+import Separador from "../../../components/Separador"
+import Tweet from "../../../components/Tweets"
 import styles from "./Timeline.module.css"
 
 const Tweets = ["tweet 1", "tweet 2 ", "tweet 3"]
@@ -19,7 +20,7 @@ export default function Timelime() {
           <button type="submit">Tweet</button>
         </form>
 
-        <div className={styles.separator} />
+        <Separador />
 
         {Tweets.map((tweet, index) => {
           return <Tweet key={index} content={tweet} />

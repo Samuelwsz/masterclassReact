@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom"
-import Timelime from "../components/Timeline"
+import Timelime from "../pages/home/Timeline"
+import Status from "../pages/home/Status"
 
 export const router = createBrowserRouter([
   {
@@ -8,6 +9,6 @@ export const router = createBrowserRouter([
   },
   {
     path: "/tweet",
-    element: <h1>pagina tweet</h1>,
+    element: <Status />,
   },
 ])
