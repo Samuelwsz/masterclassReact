@@ -10,6 +10,7 @@ import {
   User,
   DotsThreeCircle,
 } from "phosphor-react"
+import { Link } from "react-router-dom"
 
 export default function SideBar() {
   return (
@@ -18,10 +19,11 @@ export default function SideBar() {
         <img className={styles.logo} src={Logo} alt="" />
 
         <nav className={styles.main_navigation}>
-          <a className={styles.active} href="">
+          <Link className={styles.active} to="/">
             <House weight="fill" />
             Home
-          </a>
+          </Link>
+
           <a href="">
             <Hash /> Explore
           </a>

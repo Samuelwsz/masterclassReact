@@ -1,7 +1,6 @@
 import styles from "./Home.module.css"
 import SideBar from "../../components/SideBar"
-import { RouterProvider } from "react-router-dom"
-import { router } from "../../routes/routes"
+import { Outlet } from "react-router-dom"
 
 export default function Home() {
   return (
@@ -9,7 +8,7 @@ export default function Home() {
       <div className={styles.layout}>
         <SideBar />
         <div className={styles.content}>
-          <RouterProvider router={router} />
+          <Outlet />
         </div>
       </div>
     </>
