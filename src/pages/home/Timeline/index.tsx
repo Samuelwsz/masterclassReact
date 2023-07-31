@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react"
+import { FormEvent, KeyboardEvent, useState } from "react"
 import Cabecalho from "../../../components/Cabecalho"
 import Separador from "../../../components/Separador"
 import Tweet from "../../../components/Tweets"
@@ -15,6 +15,13 @@ export default function Timelime() {
     setNewTweet("")
   }
 
+  function handleHotkeySubmit(event: KeyboardEvent) {
+    if (event.key === "Enter" && event.ctrlKey) {
+      setTweets([newTweet, ...tweets])
+      setNewTweet("")
+    }
+  }
+
   return (
     <>
       <main className={styles.timeline}>
@@ -27,6 +34,7 @@ export default function Timelime() {
               id="tweet"
               value={newTweet}
               placeholder="What´s happening"
+              onKeyDown={handleHotkeySubmit}
               onChange={(event) => {
                 setNewTweet(event.target.value)
               }}

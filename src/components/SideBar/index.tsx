@@ -9,6 +9,7 @@ import {
   FileText,
   User,
   DotsThreeCircle,
+  Pencil,
 } from "phosphor-react"
 import { Link } from "react-router-dom"
 
@@ -21,35 +22,38 @@ export default function SideBar() {
         <nav className={styles.main_navigation}>
           <Link className={styles.active} to="/">
             <House weight="fill" />
-            Home
+            <span>Home</span>
           </Link>
 
           <a href="">
-            <Hash /> Explore
+            <Hash /> <span>Explore</span>
           </a>
           <a href="">
-            <Bell /> Notifications
+            <Bell /> <span>Notifications</span>
           </a>
           <a href="">
-            <Envelope /> Messages
+            <Envelope /> <span>Messages</span>
           </a>
           <a href="">
-            <BookmarkSimple /> Bookmarks
+            <BookmarkSimple />
+            <span>Bookmarks</span>
           </a>
           <a href="">
-            <FileText /> Lists
+            <FileText /> <span>Lists</span>
           </a>
           <a href="">
-            <User /> Profile
+            <User /> <span>Profile</span>
           </a>
           <a href="">
-            <DotsThreeCircle /> More
+            <DotsThreeCircle /> <span>More</span>
           </a>
         </nav>
-
-        <button className={styles.new_tweet} type="button">
-          Tweet
-        </button>
+        <Link to="/tweet" style={{ textDecoration: "none" }}>
+          <button className={styles.new_tweet} type="button">
+            <Pencil />
+            <span>Tweet</span>
+          </button>
+        </Link>
       </aside>
     </>
   )

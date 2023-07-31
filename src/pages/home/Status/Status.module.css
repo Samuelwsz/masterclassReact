@@ -47,3 +47,27 @@
 .answer_tweet_form button[type="submit"]:hover {
   filter: brightness(0.9);
 }
+
+.answer_tweet_form button[type="submit"] svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .answer_tweet_form label textarea {
+    font-size: 1rem;
+  }
+
+  .answer_tweet_form button[type="submit"] {
+    display: 0.75rem;
+  }
+
+  .answer_tweet_form button[type="submit"] svg {
+    display: block;
+  }
+
+  .answer_tweet_form button[type="submit"] span {
+    display: none;
+  }
+}
