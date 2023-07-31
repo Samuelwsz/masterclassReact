@@ -4,12 +4,17 @@ import Separador from "../../../components/Separador"
 import Tweet from "../../../components/Tweets"
 import styles from "./Status.module.css"
 
+/*fluxo de renderização
+1 Toda vez que alterarmos o estado de um componente, TODO componente é recalculado
+2 Toda vez que o seu componente PAI renderizar
+3 Toda vez que alguma de suas propriedades mudarem
+*/
+
 /* Algoritmo de reconciliação
 1 criar em memoria a nova versao do html do componente
 2 compara essa nova versao com a versao anterior do html (diff)
 3 aplicar as operacoes JavaScript para alterar somente o necessario no html
 */
-
 
 export default function Status() {
   const [newAnswers, setNewAnswers] = useState("")
@@ -25,6 +30,8 @@ export default function Status() {
     setAnswers([newAnswers, ...answers])
     setNewAnswers("")
   }
+
+  
 
   return (
     <>
