@@ -4,15 +4,15 @@ import Separador from "../../../components/Separador"
 import Tweet from "../../../components/Tweets"
 import styles from "./Timeline.module.css"
 
-let newTweet = ""
-
 export default function Timelime() {
+  const [newTweet, setNewTweet] = useState("")
   const [tweets, setTweets] = useState(["tweet 1", "tweet 2 ", "tweet 3"])
 
   function createNewTweet(event: FormEvent) {
     event.preventDefault()
 
     setTweets([newTweet, ...tweets])
+    setNewTweet("")
   }
 
   return (
@@ -25,9 +25,10 @@ export default function Timelime() {
             <img src="https://github.com/samuelwsz.png" alt="Samuel" />
             <textarea
               id="tweet"
+              value={newTweet}
               placeholder="What´s happening"
               onChange={(event) => {
-                newTweet = event.target.value
+                setNewTweet(event.target.value)
               }}
             />
           </label>

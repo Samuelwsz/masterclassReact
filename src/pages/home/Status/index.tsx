@@ -1,11 +1,31 @@
+import { FormEvent, useState } from "react"
 import Cabecalho from "../../../components/Cabecalho"
 import Separador from "../../../components/Separador"
 import Tweet from "../../../components/Tweets"
 import styles from "./Status.module.css"
 
-const answers = ["Concordo", "Olha, faz sentido", "Parabéns pelo progresso"]
+/* Algoritmo de reconciliação
+1 criar em memoria a nova versao do html do componente
+2 compara essa nova versao com a versao anterior do html (diff)
+3 aplicar as operacoes JavaScript para alterar somente o necessario no html
+*/
+
 
 export default function Status() {
+  const [newAnswers, setNewAnswers] = useState("")
+  const [answers, setAnswers] = useState([
+    "Concordo",
+    "Olha, faz sentido",
+    "Parabéns pelo progresso",
+  ])
+
+  function createNewAnswer(event: FormEvent) {
+    event.preventDefault()
+
+    setAnswers([newAnswers, ...answers])
+    setNewAnswers("")
+  }
+
   return (
     <>
       <main className={styles.status}>
@@ -15,10 +35,17 @@ export default function Status() {
 
         <Separador />
 
-        <form className={styles.answer_tweet_form}>
+        <form className={styles.answer_tweet_form} onSubmit={createNewAnswer}>
           <label htmlFor="tweet">
             <img src="https://github.com/samuelwsz.png" alt="Samuel" />
-            <textarea id="tweet" placeholder="Tweet your answer" />
+            <textarea
+              id="tweet"
+              value={newAnswers}
+              placeholder="Tweet your answer"
+              onChange={(event) => {
+                setNewAnswers(event.target.value)
+              }}
+            />
           </label>
 
           <button type="submit">Answer</button>
